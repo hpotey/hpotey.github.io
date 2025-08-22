@@ -1,0 +1,1912 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autohaus Rakel - Autoteile Katalog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            line-height: 1.6;
+            color: #3c3c3c;
+            background-color: #f5f5f5;
+        }
+
+     /* Header */
+        header {
+            background: white;
+            color: #3c3c3c;
+            padding: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-bottom: 3px solid #06b3c5;
+        }
+
+        .header-top {
+            background: #3c3c3c;
+            color: white;
+            padding: 0;
+            font-size: 0.85em;
+            height: 49px;
+        }
+
+        .header-top-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            color: #06b3c5;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+      .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo:hover {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo-image {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: block;
+        }
+
+        .logo-text h1 {
+            font-size: 2.2em;
+            font-weight: 700;
+            font-style: italic;
+            color: #3c3c3c;
+            margin: 0;
+            line-height: 1;
+            letter-spacing: -1px;
+        }
+
+        .logo-text .logo-highlight {
+            color: #06b3c5;
+        }
+
+        .logo-text p {
+            font-size: 0.85em;
+            color: #5a5a5a;
+            margin: 5px 0 0 0;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .header-phone {
+            background: #06b3c5;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 1em;
+            transition: background 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .header-phone:hover {
+            background: #04a3b3;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            padding: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-top: 1px solid #eee;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            display: block;
+            color: #3c3c3c;
+            text-decoration: none;
+            padding: 18px 28px;
+            font-weight: 400;
+            font-size: 0.95em;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #06b3c5;
+            background-color: #f8f9fa;
+        }
+
+        .nav-menu .nav-divider {
+            border-left: 1px solid #eee;
+        }
+
+        /* Dropdown for Categories */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 250px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.15);
+            z-index: 1;
+            top: 100%;
+            border: 1px solid #eee;
+        }
+
+        .dropdown-content a {
+            padding: 14px 24px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            color: #3c3c3c;
+            font-size: 0.9em;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f8f9fa;
+            color: #06b3c5;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-title {
+            font-size: 3.2em;
+            color: #3c3c3c;
+            font-weight: 700;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .page-subtitle {
+            font-size: 1.3em;
+            color: #5a5a5a;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* Filter Controls */
+        .filter-controls {
+            background: white;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            align-items: end;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filter-group label {
+            font-weight: 400;
+            margin-bottom: 10px;
+            color: #3c3c3c;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-group select {
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Kanit', sans-serif;
+            font-size: 0.95em;
+            background: white;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+            color: #3c3c3c;
+        }
+
+        .filter-group select:focus {
+            outline: none;
+            border-color: #06b3c5;
+        }
+
+        .clear-filters {
+            background: #5a5a5a;
+            color: white;
+            padding: 14px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Kanit', sans-serif;
+            font-size: 0.95em;
+            transition: background 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .clear-filters:hover {
+            background: #3c3c3c;
+        }
+
+        /* Home Page Styles */
+        .hero-section {
+            background: white;
+            padding: 70px 50px;
+            border-radius: 8px;
+            margin-bottom: 60px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .hero-content h2 {
+            font-size: 2.5em;
+            color: #3c3c3c;
+            font-weight: 700;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .hero-content p {
+            font-size: 1.1em;
+            color: #5a5a5a;
+            max-width: 900px;
+            margin: 0 auto 25px;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #06b3c5;
+            color: white;
+            padding: 18px 36px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 400;
+            font-size: 1em;
+            transition: background 0.3s ease;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 25px;
+        }
+
+        .cta-button:hover {
+            background: #04a3b3;
+        }
+
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 45px 35px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            font-size: 3.5em;
+            color: #06b3c5;
+            margin-bottom: 25px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5em;
+            color: #3c3c3c;
+            font-weight: 700;
+            font-style: italic;
+            margin-bottom: 18px;
+        }
+
+        .feature-card p {
+            color: #5a5a5a;
+            font-weight: 400;
+            line-height: 1.6;
+            font-size: 1em;
+        }
+
+        /* Categories Page Styles */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .category-image {
+            height: 200px;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-icon {
+            width: 90px;
+            height: 90px;
+            color: #06b3c5;
+        }
+
+        .category-content {
+            padding: 30px;
+        }
+
+        .category-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            font-style: italic;
+            color: #3c3c3c;
+            margin-bottom: 12px;
+        }
+
+        .category-description {
+            color: #5a5a5a;
+            font-size: 0.95em;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .category-count {
+            background: #06b3c5;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: 400;
+            display: inline-block;
+            margin-top: 18px;
+        }
+
+        /* Product Listings */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .product-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            font-style: italic;
+            color: #3c3c3c;
+            margin-bottom: 18px;
+            line-height: 1.4;
+        }
+
+        .product-price {
+            font-size: 1.8em;
+            font-weight: 400;
+            color: #06b3c5;
+            margin-bottom: 18px;
+        }
+
+        .product-part-number {
+            background: #f8f9fa;
+            padding: 10px 14px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-weight: 400;
+            color: #5a5a5a;
+            margin-bottom: 18px;
+            display: inline-block;
+        }
+
+        .product-condition {
+            color: #06b3c5;
+            font-weight: 400;
+            margin-bottom: 12px;
+            font-size: 0.95em;
+        }
+
+        .product-description {
+            color: #5a5a5a;
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-bottom: 18px;
+            font-weight: 400;
+        }
+
+        .product-location {
+            color: #5a5a5a;
+            font-size: 0.9em;
+        }
+
+        .back-button {
+            display: inline-block;
+            background: #5a5a5a;
+            color: white;
+            padding: 14px 24px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 400;
+            margin-bottom: 35px;
+            transition: background 0.3s ease;
+            cursor: pointer;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .back-button:hover {
+            background: #3c3c3c;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #3c3c3c;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin-top: 100px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            color: #06b3c5;
+            font-weight: 700;
+            font-style: italic;
+            font-size: 1.3em;
+            margin-bottom: 25px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 1.8;
+            font-weight: 400;
+            font-size: 1em;
+        }
+
+        .footer-section a:hover {
+            color: #06b3c5;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #5a5a5a;
+            padding-top: 25px;
+            font-size: 0.9em;
+            color: #ccc;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .header-top {
+                display: none;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .logo {
+                gap: 15px;
+                margin-bottom: 20px;
+            }
+
+            .logo-image {
+                height: 100px;
+                width: 100px;
+            }
+
+            .header-actions {
+                margin-top: 15px;
+            }
+
+            .header-phone {
+                padding: 12px 20px;
+                font-size: 0.9em;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+            }
+
+            .nav-menu a {
+                padding: 15px 20px;
+                border-bottom: 1px solid #eee;
+                font-size: 0.9em;
+            }
+
+            .nav-divider {
+                border-left: none !important;
+            }
+
+            .page-title {
+                font-size: 2.5em;
+            }
+
+            .hero-content h2 {
+                font-size: 2em;
+            }
+
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-controls {
+                grid-template-columns: 1fr;
+                padding: 25px;
+            }
+
+            .footer-info {
+                text-align: center;
+            }
+
+            .category-icon {
+                width: 70px;
+                height: 70px;
+            }
+        }
+
+        /* Page States */
+        .page-content {
+            display: none;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        /* Hidden class for filtering */
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="header-top-content">
+                <div class="contact-info">
+                    <span>📞 +49 05937 92760</span>
+                    <span>📧 info@autohaus-rakel.de</span>
+                    <span>📍 Meppener Str. 130, 49744 Geeste</span>
+                </div>
+                <div>
+                    <span>Mo-Fr: 8:00-18:00 | Sa: 9:00-14:00</span>
+                </div>
+            </div>
+        </div>
+        <div class="header-content">
+            <a href="https://www.autohaus-rakel.de/" target="_blank" class="logo">
+                <img src="https://i.imgur.com/G1YUk1t.jpeg" alt="Autohaus Rakel Logo" class="logo-image">
+                <div class="logo-text">
+                </div>
+            </a>
+            <div class="header-actions">
+                <a href="tel:+4905937927600" class="header-phone">Jetzt anrufen</a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link active" data-page="home">Startseite</a></li>
+                <li class="nav-divider dropdown">
+                    <a href="#" class="nav-link" data-page="categories">Autoteile</a>
+                    <div class="dropdown-content">
+                        <a href="#" data-category="motorhaube">Motorhaube/Frontklappe</a>
+                        <a href="#" data-category="tueren">Türen</a>
+                        <a href="#" data-category="tuerverkleidung">Türverkleidung</a>
+                        <a href="#" data-category="trittbretter">Trittbretter</a>
+                        <a href="#" data-category="stossstange">Stoßstange</a>
+                        <a href="#" data-category="reifen-sommer">Sommerreifen</a>
+                        <a href="#" data-category="felgen">Felgen</a>
+                        <a href="#" data-category="bodenplatte">Bodenplatte</a>
+                    </div>
+                </li>
+                <li class="nav-divider"><a href="#" class="nav-link" data-page="about">Über uns</a></li>
+                <li class="nav-divider"><a href="#" class="nav-link" data-page="contact">Kontakt</a></li>
+                <li class="nav-divider"><a href="https://www.autohaus-rakel.de/" target="_blank">Hauptwebsite</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- HOME PAGE -->
+        <div id="home" class="page-content active">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h2>Willkommen bei Autohaus H. Rakel</h2>
+                    <p>Das Autohaus H. Rakel im emsländischen Geeste ist seit 1955 Ihr zuverlässiger Partner rund ums Automobil. Von Neuwagen über Gebrauchtwagen bis hin zu Nutzfahrzeugen bleiben bei uns keine Wünsche offen. Selbstverständlich führen wir auch alle dazugehörigen Dienstleistungen professionell für Sie durch und überzeugen Sie mit attraktiven Mietangeboten.</p>
+                    <p>Zusätzlich zu unserem umfangreichen Fahrzeugangebot bieten wir eine große Auswahl an hochwertigen Autoteilen für verschiedene Fahrzeugmarken. Unsere Ersatzteile stammen hauptsächlich von Volkswagen sowie gelegentlich von Audi und Škoda. Ob Karosserieteile, Reifen oder spezielle Komponenten - wir haben das passende Teil für Ihr Fahrzeug.</p>
+                    <a href="#" class="cta-button" data-page="categories">Kategorien entdecken</a>
+                </div>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🏢</div>
+                    <h3>Seit 1955</h3>
+                    <p>Über 65 Jahre Erfahrung im Automobilbereich. Vertrauen Sie auf unsere Expertise und langjährige Tradition in der Region.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Qualitätsteile</h3>
+                    <p>Hochwertige Autoteile von Volkswagen, Audi und Škoda. Originalteile und geprüfte Ersatzteile für Ihr Fahrzeug.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Persönlicher Service</h3>
+                    <p>Kompetente Beratung und professioneller Service. Als Familienunternehmen sind wir persönlich für Sie da.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORIES PAGE -->
+        <div id="categories" class="page-content">
+            <div class="page-header">
+                <h1 class="page-title">Kategorien</h1>
+                <p class="page-subtitle">Entdecken Sie unsere umfangreiche Auswahl an Autoteilen für verschiedene Fahrzeugbereiche</p>
+            </div>
+
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label for="carType">Fahrzeugmarke:</label>
+                    <select id="carType">
+                        <option value="">Alle Marken</option>
+                        <option value="volkswagen">Volkswagen</option>
+                        <option value="audi">Audi</option>
+                        <option value="skoda">Škoda</option>
+                        <option value="mercedes">Mercedes</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="condition">Zustand:</label>
+                    <select id="condition">
+                        <option value="">Alle Zustände</option>
+                        <option value="neu">Neu</option>
+                        <option value="gebraucht">Gebraucht</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="sortBy">Sortierung:</label>
+                    <select id="sortBy">
+                        <option value="newest">Neueste zuerst</option>
+                        <option value="oldest">Älteste zuerst</option>
+                        <option value="price-asc">Preis aufsteigend</option>
+                        <option value="price-desc">Preis absteigend</option>
+                        <option value="alphabetical">Alphabetisch</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <button class="clear-filters" onclick="clearFilters()">Filter zurücksetzen</button>
+                </div>
+            </div>
+
+            <div class="categories-grid" id="categoriesGrid">
+                <div class="category-card" data-category="motorhaube" data-brand="volkswagen" data-condition="gebraucht" data-date="2024-01-01" data-price="195">
+                    <div class="category-image">
+                        <svg class="category-icon" viewBox="0 0 100 100" fill="currentColor">
+                            <path d="M15 35h70c3 0 5 2 5 5v25c0 3-2 5-5 5H15c-3 0-5-2-5-5V40c0-3 2-5 5-5z"/>
+                            <path d="M20 45h60v10H20z" fill="white" opacity="0.3"/>
+                            <circle cx="25" cy="55" r="2" fill="white"/>
+                            <circle cx="75" cy="55" r="2" fill="white"/>
+                            <path d="M40 30L50 20l10 10v5H40v-5z" opacity="0.7"/>
+                        </svg>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Türverkleidung</h3>
+                        <p class="category-description">VW T6 Türverkleidung Schiebetür rechts</p>
+                        <span class="category-count">1 Artikel</span>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="trittbretter" data-brand="volkswagen" data-condition="gebraucht" data-date="2024-03-01" data-price="105">
+                    <div class="category-image">
+                        <svg class="category-icon" viewBox="0 0 100 100" fill="currentColor">
+                            <rect x="15" y="45" width="70" height="8" rx="4"/>
+                            <rect x="20" y="40" width="60" height="3" opacity="0.6"/>
+                            <rect x="20" y="56" width="60" height="3" opacity="0.6"/>
+                            <circle cx="25" cy="49" r="2" fill="white"/>
+                            <circle cx="50" cy="49" r="2" fill="white"/>
+                            <circle cx="75" cy="49" r="2" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Trittbretter</h3>
+                        <p class="category-description">VW Crafter/Mercedes Sprinter Trittbretter</p>
+                        <span class="category-count">2 Artikel</span>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="stossstange" data-brand="volkswagen" data-condition="gebraucht" data-date="2024-02-15" data-price="195">
+                    <div class="category-image">
+                        <svg class="category-icon" viewBox="0 0 100 100" fill="currentColor">
+                            <path d="M10 45c0-5 4-9 9-9h62c5 0 9 4 9 9v15c0 5-4 9-9 9H19c-5 0-9-4-9-9V45z"/>
+                            <rect x="20" y="50" width="60" height="5" fill="white" opacity="0.3"/>
+                            <circle cx="25" cy="55" r="3" fill="white" opacity="0.7"/>
+                            <circle cx="75" cy="55" r="3" fill="white" opacity="0.7"/>
+                        </svg>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Stoßstange</h3>
+                        <p class="category-description">ID3 Stoßstange hinten mit Farbcode A7C</p>
+                        <span class="category-count">1 Artikel</span>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="reifen-sommer" data-brand="mixed" data-condition="gebraucht" data-date="2024-03-10" data-price="105">
+                    <div class="category-image">
+                        <svg class="category-icon" viewBox="0 0 100 100" fill="currentColor">
+                            <circle cx="50" cy="50" r="25"/>
+                            <circle cx="50" cy="50" r="15" fill="white" opacity="0.2"/>
+                            <circle cx="50" cy="50" r="8" fill="white"/>
+                            <path d="M35 35L65 65M65 35L35 65" stroke="white" stroke-width="2" opacity="0.5"/>
+                            <path d="M50 25v50M25 50h50" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                        </svg>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Sommerreifen</h3>
+                        <p class="category-description">Michelin und Hankook Sommerreifen verschiedene Größen</p>
+                        <span class="category-count">3 Artikel</span>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="felgen" data-brand="volkswagen" data-condition="mixed" data-date="2024-02-28" data-price="550">
+                    <div class="category-image">
+                        <svg class="category-icon" viewBox="0 0 100 100" fill="currentColor">
+                            <circle cx="50" cy="50" r="28"/>
+                            <circle cx="50" cy="50" r="20" fill="white" opacity="0.3"/>
+                            <circle cx="50" cy="50" r="6" fill="white"/>
+                            <path d="M50 22v16M78 50H62M50 78V62M22 50h16" stroke="white" stroke-width="3"/>
+                            <circle cx="50" cy="30" r="3" fill="white"/>
+                            <circle cx="70" cy="50" r="3" fill="white"/>
+                            <circle cx="50" cy="70" r="3" fill="white"/>
+                            <circle cx="30" cy="50" r="3" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Felgen</h3>
+                        <p class="category-description">VW und Audi Alufelgen in verschiedenen Größen</p>
+                        <span class="category-count">3 Artikel</span>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="bodenplatte" data-brand="volkswagen" data-condition="gebraucht" data-date="2024-01-20" data-price="550">
+                    <div class="category-image">
+                        <svg class="category-icon" viewBox="0 0 100 100" fill="currentColor">
+                            <rect x="15" y="35" width="70" height="30" rx="3"/>
+                            <rect x="20" y="45" width="60" height="3" fill="white" opacity="0.3"/>
+                            <rect x="20" y="52" width="60" height="3" fill="white" opacity="0.3"/>
+                            <circle cx="25" cy="40" r="2" fill="white"/>
+                            <circle cx="75" cy="40" r="2" fill="white"/>
+                            <circle cx="25" cy="60" r="2" fill="white"/>
+                            <circle cx="75" cy="60" r="2" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Bodenplatte</h3>
+                        <p class="category-description">VW Crafter Holzboden vorne</p>
+                        <span class="category-count">1 Artikel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ABOUT PAGE -->
+        <div id="about" class="page-content">
+            <div class="page-header">
+                <h1 class="page-title">Über uns</h1>
+                <p class="page-subtitle">Erfahren Sie mehr über Autohaus H. Rakel und unsere Geschichte</p>
+            </div>
+
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h2>Familienunternehmen seit 1955</h2>
+                    <p>Als Familienunternehmen bieten wir unseren Kunden in der schnelllebigen Welt der Mobilität etwas, das bleibt: ehrliche und persönliche Beratung auf Augenhöhe – gestern, heute und morgen. Dadurch sind über die Jahre viele Kundenbeziehungen gewachsen, auf die wir stolz sind und die nunmehr Generationen überdauern.</p>
+                    <p>Unser Autohaus im emsländischen Geeste ist seit über 65 Jahren Ihr zuverlässiger Partner rund ums Automobil. Wir sind spezialisiert auf Volkswagen, Audi und Škoda und bieten neben unserem umfangreichen Fahrzeugangebot auch eine große Auswahl an hochwertigen Autoteilen.</p>
+                </div>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">📍</div>
+                    <h3>Unser Standort</h3>
+                    <p>Meppener Str. 130, 49744 Geeste - zentral gelegen und gut erreichbar für Kunden aus der gesamten Region Emsland.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏰</div>
+                    <h3>Öffnungszeiten</h3>
+                    <p>Mo-Fr: 8:00-18:00 Uhr, Sa: 9:00-14:00 Uhr. Außerhalb der Öffnungszeiten sind wir nach Vereinbarung für Sie da.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Unsere Mission</h3>
+                    <p>Qualität, Zuverlässigkeit und persönlicher Service stehen bei uns im Mittelpunkt. Ihre Zufriedenheit ist unser Antrieb.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT PAGE -->
+        <div id="contact" class="page-content">
+            <div class="page-header">
+                <h1 class="page-title">Kontakt</h1>
+                <p class="page-subtitle">Nehmen Sie Kontakt mit uns auf - wir sind gerne für Sie da</p>
+            </div>
+
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h2>Autohaus H. Rakel</h2>
+                    <p><strong>Adresse:</strong><br>
+                    Meppener Str. 130<br>
+                    49744 Geeste</p>
+                    
+                    <p><strong>Telefon:</strong> +49 05937 92760<br>
+                    <strong>E-Mail:</strong> info@autohaus-rakel.de</p>
+                    
+                    <p><strong>Öffnungszeiten:</strong><br>
+                    Montag - Freitag: 8:00 - 18:00 Uhr<br>
+                    Samstag: 9:00 - 14:00 Uhr</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRODUCT LISTINGS -->
+        <div id="products" class="page-content">
+            <a href="#" class="back-button" onclick="showPage('categories')">← Zurück zu Kategorien</a>
+            
+            <div class="page-header">
+                <h1 class="page-title" id="categoryTitle">Produkte</h1>
+                <p class="page-subtitle" id="categorySubtitle">Artikel in dieser Kategorie</p>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <div class="footer-section">
+                    <h4>Autohaus H. Rakel</h4>
+                    <p>Meppener Str. 130<br>49744 Geeste</p>
+                    <p>Telefon: +49 05937 92760<br>E-Mail: info@autohaus-rakel.de</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Öffnungszeiten</h4>
+                    <p>Montag - Freitag: 8:00 - 18:00 Uhr<br>Samstag: 9:00 - 14:00 Uhr<br>Sonntag: Geschlossen</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <p><a href="#">Neuwagen</a><br><a href="#">Gebrauchtwagen</a><br><a href="#">Autoteile</a><br><a href="#">Werkstatt</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Autohaus H. Rakel. Alle Rechte vorbehalten. | <a href="https://www.autohaus-rakel.de/">Hauptwebsite</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Real product data from your listings
+        const products = {
+            motorhaube: [
+                {
+                    title: "Motorhaube / Frontklappe VW Touran III",
+                    price: "195 € VB",
+                    partNumber: "5TA823031E",
+                    condition: "Gebraucht - Guter Zustand",
+                    description: "Der Artikel ist gebraucht und kann kleinere Gebrauchsspuren aufweisen. Bitte vergleichen Sie die Teilenummer in der Anzeige mit Ihrem Altteil, dass es zu keiner Verwechslung kommt.",
+                    location: "49744 Geeste Groß-Hesepe"
+                }
+            ],
+            tueren: [
+                {
+                    title: "VW Multivan Tür vorne rechts",
+                    price: "165 € VB",
+                    partNumber: "7T0837470",
+                    condition: "Gebraucht - Guter Zustand",
+                    description: "Der Artikel ist gebraucht und kann kleinere Gebrauchsspuren aufweisen. Bitte vergleichen Sie die Teilenummer in der Anzeige mit Ihrem Altteil.",
+                    location: "49744 Geeste Groß-Hesepe"
+                },
+                {
+                    title: "Skoda Kodiaq Tür hinten rechts",
+                    price: "150 € VB",
+                    partNumber: "565833312",
+                    condition: "Gebraucht",
+                    description: "Der Artikel ist gebraucht und kann kleinere Gebrauchsspuren wie Kratzer aufweisen. Bitte vergleichen Sie die Teilenummer in der Anzeige mit Ihrem Altteil.",
+                    location: "Geeste"
+                },
+                {
+                    title: "Audi Q4 E-Tron Tür Vorne rechts",
+                    price: "165 €",
+                    partNumber: "89a831312",
+                    condition: "Gebraucht",
+                    description: "Der Artikel ist gebraucht und kann kleinere Gebrauchsspuren wie Kratzer aufweisen. Bitte vergleichen Sie die Teilenummer in der Anzeige mit Ihrem Altteil.",
+                    location: "Geeste"
+                },
+                {
+                    title: "VW Golf Sportsvan Tür Hinten rechts ab 2014",
+                    price: "150 € VB",
+                    partNumber: "510833312K",
+                    condition: "Gebraucht",
+                    description: "Der Artikel ist gebraucht und kann kleinere Gebrauchsspuren wie Kratzer aufweisen. Bitte vergleichen Sie die Teilenummer in der Anzeige mit Ihrem Altteil.",
+                    location: "Geeste"
+                }
+            ],
+            tuerverkleidung: [
+                {
+                    title: "VW T6 7E5 Türverkleidung Schiebetür rechts inkl. Roll",
+                    price: "219 € VB",
+                    partNumber: "7E5867028CH",
+                    condition: "Gebraucht - Guter Zustand",
+                    description: "Der Artikel ist gebraucht und kann kleinere Gebrauchsspuren aufweisen. Nummer: 7E5864869A 7E5867028CH NGN",
+                    location: "49744 Geeste Groß-Hesepe"
+                }
+            ],
+            trittbretter: [
+                {
+                    title: "VW Crafter/Mercedes Sprinter Trittbrett",
+                    price: "105 € VB",
+                    partNumber: "Crafter/Sprinter",
+                    condition: "Guter Zustand",
+                    description: "Trittbrett VW Crafter/Mercedes Sprinter. Abmessungen siehe Bilder. Abholung vor Ort.",
+                    location: "Nur Abholung"
+                },
+                {
+                    title: "Trittbrett VW Crafter Easy Step",
+                    price: "105 € VB",
+                    partNumber: "VW Crafter",
+                    condition: "Guter Zustand",
+                    description: "VW Crafter evtl. auch Mercedes Sprinter. Trittbrett Easy Step. Abmessungen siehe Bilder.",
+                    location: "Nur Abholung"
+                }
+            ],
+            stossstange: [
+                {
+                    title: "ID3 Stoßstange hinten Farbcode A7C",
+                    price: "195 € VB",
+                    partNumber: "10A807417",
+                    condition: "Gebraucht",
+                    description: "Der Artikel ist gebraucht und kann kleinere Gebrauchsspuren wie Kratzer aufweisen. Bitte vergleichen Sie die Teilenummer in der Anzeige mit Ihrem Altteil.",
+                    location: "Geeste"
+                }
+            ],
+            'reifen-sommer': [
+                {
+                    title: "Sommerreifen Michelin Primacy 4 205/55 R17 91W",
+                    price: "115 € VB",
+                    partNumber: "205/55R17",
+                    condition: "Gebraucht",
+                    description: "Sommerreifen Michelin Primacy 4 205/55R17 91V. Woche/Jahr: 0521",
+                    location: "Geeste"
+                },
+                {
+                    title: "Sommerreifen Hankook Ventus Prime 2 235/45 R18 94W",
+                    price: "105 € VB",
+                    partNumber: "235/45R18",
+                    condition: "Gebraucht",
+                    description: "2 Sommerreifen Hankook Ventus Prime 2 235/45 R18 94W. Woche/Jahr: 3519",
+                    location: "Geeste"
+                },
+                {
+                    title: "Hankook Sommerreifen Ventus Prime 4 K135 215/65 R16",
+                    price: "235 € VB",
+                    partNumber: "215/65R16",
+                    condition: "Neu - 2024",
+                    description: "Hankook Sommerreifen Ventus Prime 4 K135 215/65 R16 102H XL aus dem Jahr 2024 Woche 36. DOT 12x9B 18 HA",
+                    location: "Geeste"
+                }
+            ],
+            felgen: [
+                {
+                    title: "18 Zoll VW Transporter T6 T6.1 original Springfield",
+                    price: "550 € VB",
+                    partNumber: "7E0601025AC",
+                    condition: "Neu!",
+                    description: "18 Zoll Springfield VW Transporter T6 T6.1 original 7E0601025AC Felge Alufelge",
+                    location: "Geeste"
+                },
+                {
+                    title: "Alufelgen Original Audi A6 S6 4G 18 8x18 ET41",
+                    price: "595 € VB",
+                    partNumber: "4G9601025E",
+                    condition: "Mit Reifen",
+                    description: "4 Alufelgen Original Audi A6 S6 4G 18 8x18 ET41 LK 5/112. Allwetterreifen aus 2019 Profiltiefe circa 6 mm 215/55R17 94V GoodYear",
+                    location: "Geeste"
+                },
+                {
+                    title: "4x Original Alufelgen VW Devenport T6 7Jx17 ET55",
+                    price: "750 € VB",
+                    partNumber: "7E0601025P",
+                    condition: "Gebraucht",
+                    description: "4 Original Alufelgen VW Devenport T6 7Jx17 ET55. Passend für: VW Transporter Multivan T5 T6. Auch andere Modelle möglich.",
+                    location: "Geeste"
+                }
+            ],
+            bodenplatte: [
+                {
+                    title: "VW Crafter Bodenplatte Holzboden vorne",
+                    price: "550 € VB",
+                    partNumber: "7C0 863 678 J XT8 K2 TM2",
+                    condition: "Neuwertiger Zustand",
+                    description: "Originalen Sperrholzboden für den VW Crafter Facelift ab Modelljahr 2017 mit langem Radstand. Farbe: Anthrazit (XT8). Neuwertiger Zustand, da aus einem Neuwagen ausgebaut. Nur der vordere Teil!",
+                    location: "Geeste"
+                }
+            ]
+        };
+
+        // Navigation functionality
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            document.getElementById(pageId).classList.add('active');
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+            
+            const activeLink = document.querySelector(`[data-page="${pageId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+
+        // Category click functionality
+        function showProducts(category) {
+            const categoryData = products[category] || [];
+            const productsGrid = document.getElementById('productsGrid');
+            const categoryTitle = document.getElementById('categoryTitle');
+            const categorySubtitle = document.getElementById('categorySubtitle');
+            
+            const categoryNames = {
+                motorhaube: 'Motorhaube/Frontklappe',
+                tueren: 'Türen',
+                tuerverkleidung: 'Türverkleidung',
+                trittbretter: 'Trittbretter',
+                stossstange: 'Stoßstange',
+                'reifen-sommer': 'Sommerreifen',
+                felgen: 'Felgen',
+                bodenplatte: 'Bodenplatte'
+            };
+            
+            categoryTitle.textContent = categoryNames[category] || 'Produkte';
+            categorySubtitle.textContent = `${categoryData.length} Artikel in dieser Kategorie`;
+            
+            productsGrid.innerHTML = '';
+            
+            if (categoryData.length === 0) {
+                productsGrid.innerHTML = '<p style="text-align: center; color: #5a5a5a; grid-column: 1/-1;">Keine Artikel in dieser Kategorie verfügbar.</p>';
+            } else {
+                categoryData.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    productCard.innerHTML = `
+                        <h3 class="product-title">${product.title}</h3>
+                        <div class="product-price">${product.price}</div>
+                        <div class="product-part-number">Art.-Nr.: ${product.partNumber}</div>
+                        <div class="product-condition">${product.condition}</div>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-location">📍 ${product.location}</div>
+                    `;
+                    productsGrid.appendChild(productCard);
+                });
+            }
+            
+            showPage('products');
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const page = this.getAttribute('data-page');
+                    if (page) {
+                        showPage(page);
+                    }
+                });
+            });
+
+            const ctaButton = document.querySelector('.cta-button');
+            if (ctaButton) {
+                ctaButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const page = this.getAttribute('data-page');
+                    if (page) {
+                        showPage(page);
+                    }
+                });
+            }
+
+            const categoryCards = document.querySelectorAll('.category-card');
+            categoryCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    if (category) {
+                        showProducts(category);
+                    }
+                });
+            });
+
+            const categoryLinks = document.querySelectorAll('[data-category]');
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const category = this.getAttribute('data-category');
+                    if (category) {
+                        showProducts(category);
+                    }
+                });
+            });
+        });
+
+        // Filter functionality
+        function filterCategories() {
+            const carType = document.getElementById('carType').value;
+            const condition = document.getElementById('condition').value;
+            const sortBy = document.getElementById('sortBy').value;
+            
+            const cards = Array.from(document.querySelectorAll('.category-card'));
+            
+            cards.forEach(card => {
+                const cardBrand = card.getAttribute('data-brand');
+                const cardCondition = card.getAttribute('data-condition');
+                
+                let show = true;
+                
+                if (carType && cardBrand !== carType && cardBrand !== 'mixed') {
+                    show = false;
+                }
+                
+                if (condition && cardCondition !== condition && cardCondition !== 'mixed') {
+                    show = false;
+                }
+                
+                card.style.display = show ? 'block' : 'none';
+            });
+            
+            const grid = document.getElementById('categoriesGrid');
+            const visibleCards = cards.filter(card => card.style.display !== 'none');
+            
+            visibleCards.sort((a, b) => {
+                switch (sortBy) {
+                    case 'alphabetical':
+                        return a.querySelector('.category-title').textContent.localeCompare(b.querySelector('.category-title').textContent);
+                    case 'price-asc':
+                        return parseInt(a.getAttribute('data-price')) - parseInt(b.getAttribute('data-price'));
+                    case 'price-desc':
+                        return parseInt(b.getAttribute('data-price')) - parseInt(a.getAttribute('data-price'));
+                    case 'oldest':
+                        return new Date(a.getAttribute('data-date')) - new Date(b.getAttribute('data-date'));
+                    case 'newest':
+                    default:
+                        return new Date(b.getAttribute('data-date')) - new Date(a.getAttribute('data-date'));
+                }
+            });
+            
+            visibleCards.forEach(card => {
+                grid.appendChild(card);
+            });
+        }
+
+        function clearFilters() {
+            document.getElementById('carType').value = '';
+            document.getElementById('condition').value = '';
+            document.getElementById('sortBy').value = 'newest';
+            
+            const cards = document.querySelectorAll('.category-card');
+            cards.forEach(card => {
+                card.style.display = 'block';
+            });
+        }
+
+        // Add event listeners for filters
+        document.addEventListener('DOMContentLoaded', function() {
+            const filters = ['carType', 'condition', 'sortBy'];
+            filters.forEach(filterId => {
+                const element = document.getElementById(filterId);
+                if (element) {
+                    element.addEventListener('change', filterCategories);
+                }
+            });
+        });
+    </script>
+</body>
+</html> class="category-title">Motorhaube/Frontklappe</h3>
+                        <p class="category-description">Motorhauben und Frontklappen für VW Touran III</p>
+                        <span class="category-count">1 Artikel</span>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="tueren" data-brand="mixed" data-condition="gebraucht" data-date="2024-02-01" data-price="150">
+                    <div class="category-image">
+                        <svg class="category-icon" viewBox="0 0 100 100" fill="currentColor">
+                            <rect x="25" y="20" width="50" height="60" rx="3"/>
+                            <rect x="30" y="30" width="15" height="12" fill="white" opacity="0.3"/>
+                            <rect x="30" y="50" width="15" height="12" fill="white" opacity="0.3"/>
+                            <circle cx="65" cy="50" r="3" fill="white"/>
+                            <path d="M25 75h50v5H25z" opacity="0.7"/>
+                        </svg>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Türen</h3>
+                        <p class="category-description">Türen für VW, Audi und Škoda Modelle</p>
+                        <span class="category-count">4 Artikel</span>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="tuerverkleidung" data-brand="volkswagen" data-condition="gebraucht" data-date="2024-01-15" data-price="219">
+                    <div class="category-image">
+                        <svg class="category-icon" viewBox="0 0 100 100" fill="currentColor">
+                            <rect x="20" y="25" width="60" height="50" rx="2"/>
+                            <rect x="25" y="35" width="50" height="6" fill="white" opacity="0.3"/>
+                            <rect x="25" y="45" width="20" height="8" fill="white" opacity="0.3"/>
+                            <rect x="25" y="60" width="50" height="3" fill="white" opacity="0.3"/>
+                            <circle cx="60" cy="49" r="2" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Türverkleidung</h3>
+                        <p class="category-description">VW T6 Türverkleidung Schiebetür rechts</p>
+                        <span class="category-count">1 Artikel</span>
+</div>
+                </div>
+
+                <div class="category-card" data-category="trittbretter" data-brand="volkswagen" data-condition="gebraucht" data-date="2024-03-01" data-price="105">
+                    <div class="category-image">
+                        <svg class="category-icon" viewBox="0 0 100 100" fill="currentColor">
+                            <rect x="15" y="45" width="70" height="8" rx="4"/>
+                            <rect x="20" y="40" width="60" height="3" opacity="0.6"/>
+                            <rect x="20" y="56" width="60" height="3" opacity="0.6"/>
+                            <circle cx="25" cy="49" r="2" fill="white"/>
+                            <circle cx="50" cy="49" r="2" fill="white"/>
+                            <circle cx="75" cy="49" r="2" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Trittbretter</h3>
+                        <p class="category-description">VW Crafter/Mercedes Sprinter Trittbretter</p>
+                        <span class="category-count">2 Artikel</span>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="stossstange" data-brand="volkswagen" data-condition="gebraucht" data-date="2024-02-15" data-price="195">
+                    <div class="category-image">
+                        <svg class="category-icon" viewBox="0 0 100 100" fill="currentColor">
+                            <path d="M10 45c0-5 4-9 9-9h62c5 0 9 4 9 9v15c0 5-4 9-9 9H19c-5 0-9-4-9-9V45z"/>
+                            <rect x="20" y="50" width="60" height="5" fill="white" opacity="0.3"/>
+                            <circle cx="25" cy="55" r="3" fill="white" opacity="0.7"/>
+                            <circle cx="75" cy="55" r="3" fill="white" opacity="0.7"/>
+                        </svg>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Stoßstange</h3>
+                        <p class="category-description">ID3 Stoßstange hinten mit Farbcode A7C</p>
+                        <span class="category-count">1 Artikel</span>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="reifen-sommer" data-brand="mixed" data-condition="gebraucht" data-date="2024-03-10" data-price="105">
+                    <div class="category-image">
+                        <svg class="category-icon" viewBox="0 0 100 100" fill="currentColor">
+                            <circle cx="50" cy="50" r="25"/>
+                            <circle cx="50" cy="50" r="15" fill="white" opacity="0.2"/>
+                            <circle cx="50" cy="50" r="8" fill="white"/>
+                            <path d="M35 35L65 65M65 35L35 65" stroke="white" stroke-width="2" opacity="0.5"/>
+                            <path d="M50 25v50M25 50h50" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                        </svg>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Sommerreifen</h3>
+                        <p class="category-description">Michelin und Hankook Sommerreifen verschiedene Größen</p>
+                        <span class="category-count">3 Artikel</span>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="felgen" data-brand="volkswagen" data-condition="mixed" data-date="2024-02-28" data-price="550">
+                    <div class="category-image">
+                        <svg class="category-icon" viewBox="0 0 100 100" fill="currentColor">
+                            <circle cx="50" cy="50" r="28"/>
+                            <circle cx="50" cy="50" r="20" fill="white" opacity="0.3"/>
+                            <circle cx="50" cy="50" r="6" fill="white"/>
+                            <path d="M50 22v16M78 50H62M50 78V62M22 50h16" stroke="white" stroke-width="3"/>
+                            <circle cx="50" cy="30" r="3" fill="white"/>
+                            <circle cx="70" cy="50" r="3" fill="white"/>
+                            <circle cx="50" cy="70" r="3" fill="white"/>
+                            <circle cx="30" cy="50" r="3" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Felgen</h3>
+                        <p class="category-description">VW und Audi Alufelgen in verschiedenen Größen</p>
+                        <span class="category-count">3 Artikel</span>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="bodenplatte" data-brand="volkswagen" data-condition="gebraucht" data-date="2024-01-20" data-price="550">
+                    <div class="category-image">
+                        <svg class="category-icon" viewBox="0 0 100 100" fill="currentColor">
+                            <rect x="15" y="35" width="70" height="30" rx="3"/>
+                            <rect x="20" y="45" width="60" height="3" fill="white" opacity="0.3"/>
+                            <rect x="20" y="52" width="60" height="3" fill="white" opacity="0.3"/>
+                            <circle cx="25" cy="40" r="2" fill="white"/>
+                            <circle cx="75" cy="40" r="2" fill="white"/>
+                            <circle cx="25" cy="60" r="2" fill="white"/>
+                            <circle cx="75" cy="60" r="2" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">Bodenplatte</h3>
+                        <p class="category-description">VW Crafter Holzboden vorne</p>
+                        <span class="category-count">1 Artikel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ABOUT PAGE -->
+        <div id="about" class="page-content">
+            <div class="page-header">
+                <h1 class="page-title">Über uns</h1>
+                <p class="page-subtitle">Erfahren Sie mehr über Autohaus H. Rakel und unsere Geschichte</p>
+            </div>
+
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h2>Familienunternehmen seit 1955</h2>
+                    <p>Als Familienunternehmen bieten wir unseren Kunden in der schnelllebigen Welt der Mobilität etwas, das bleibt: ehrliche und persönliche Beratung auf Augenhöhe – gestern, heute und morgen. Dadurch sind über die Jahre viele Kundenbeziehungen gewachsen, auf die wir stolz sind und die nunmehr Generationen überdauern.</p>
+                    <p>Unser Autohaus im emsländischen Geeste ist seit über 65 Jahren Ihr zuverlässiger Partner rund ums Automobil. Wir sind spezialisiert auf Volkswagen, Audi und Škoda und bieten neben unserem umfangreichen Fahrzeugangebot auch eine große Auswahl an hochwertigen Autoteilen.</p>
+                </div>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">📍</div>
+                    <h3>Unser Standort</h3>
+                    <p>Meppener Str. 130, 49744 Geeste - zentral gelegen und gut erreichbar für Kunden aus der gesamten Region Emsland.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏰</div>
+                    <h3>Öffnungszeiten</h3>
+                    <p>Mo-Fr: 8:00-18:00 Uhr, Sa: 9:00-14:00 Uhr. Außerhalb der Öffnungszeiten sind wir nach Vereinbarung für Sie da.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Unsere Mission</h3>
+                    <p>Qualität, Zuverlässigkeit und persönlicher Service stehen bei uns im Mittelpunkt. Ihre Zufriedenheit ist unser Antrieb.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT PAGE -->
+        <div id="contact" class="page-content">
+            <div class="page-header">
+                <h1 class="page-title">Kontakt</h1>
+                <p class="page-subtitle">Nehmen Sie Kontakt mit uns auf - wir sind gerne für Sie da</p>
+            </div>
+
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h2>Autohaus H. Rakel</h2>
+                    <p><strong>Adresse:</strong><br>
+                    Meppener Str. 130<br>
+                    49744 Geeste</p>
+                    
+                    <p><strong>Telefon:</strong> +49 05937 92760<br>
+                    <strong>E-Mail:</strong> info@autohaus-rakel.de</p>
+                    
+                    <p><strong>Öffnungszeiten:</strong><br>
+                    Montag - Freitag: 8:00 - 18:00 Uhr<br>
+                    Samstag: 9:00 - 14:00 Uhr</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRODUCT LISTINGS -->
+        <div id="products" class="page-content">
+            <a href="#" class="back-button" onclick="showPage('categories')">← Zurück zu Kategorien</a>
+            
+            <div class="page-header">
+                <h1 class="page-title" id="categoryTitle">Produkte</h1>
+                <p class="page-subtitle" id="categorySubtitle">Artikel in dieser Kategorie</p>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <div class="footer-section">
+                    <h4>Autohaus H. Rakel</h4>
+                    <p>Meppener Str. 130<br>49744 Geeste</p>
+                    <p>Telefon: +49 05937 92760<br>E-Mail: info@autohaus-rakel.de</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Öffnungszeiten</h4>
+                    <p>Montag - Freitag: 8:00 - 18:00 Uhr<br>Samstag: 9:00 - 14:00 Uhr<br>Sonntag: Geschlossen</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <p><a href="#">Neuwagen</a><br><a href="#">Gebrauchtwagen</a><br><a href="#">Autoteile</a><br><a href="#">Werkstatt</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Autohaus H. Rakel. Alle Rechte vorbehalten. | <a href="https://www.autohaus-rakel.de/">Hauptwebsite</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Real product data from your listings
+        const products = {
+            motorhaube: [
+                {
+                    title: "Motorhaube / Frontklappe VW Touran III",
+                    price: "195 € VB",
+                    partNumber: "5TA823031E",
+                    condition: "Gebraucht - Guter Zustand",
+                    description: "Der Artikel ist gebraucht und kann kleinere Gebrauchsspuren aufweisen. Bitte vergleichen Sie die Teilenummer in der Anzeige mit Ihrem Altteil, dass es zu keiner Verwechslung kommt.",
+                    location: "49744 Geeste Groß-Hesepe"
+                }
+            ],
+            tueren: [
+                {
+                    title: "VW Multivan Tür vorne rechts",
+                    price: "165 € VB",
+                    partNumber: "7T0837470",
+                    condition: "Gebraucht - Guter Zustand",
+                    description: "Der Artikel ist gebraucht und kann kleinere Gebrauchsspuren aufweisen. Bitte vergleichen Sie die Teilenummer in der Anzeige mit Ihrem Altteil.",
+                    location: "49744 Geeste Groß-Hesepe"
+                },
+                {
+                    title: "Skoda Kodiaq Tür hinten rechts",
+                    price: "150 € VB",
+                    partNumber: "565833312",
+                    condition: "Gebraucht",
+                    description: "Der Artikel ist gebraucht und kann kleinere Gebrauchsspuren wie Kratzer aufweisen. Bitte vergleichen Sie die Teilenummer in der Anzeige mit Ihrem Altteil.",
+                    location: "Geeste"
+                },
+                {
+                    title: "Audi Q4 E-Tron Tür Vorne rechts",
+                    price: "165 €",
+                    partNumber: "89a831312",
+                    condition: "Gebraucht",
+                    description: "Der Artikel ist gebraucht und kann kleinere Gebrauchsspuren wie Kratzer aufweisen. Bitte vergleichen Sie die Teilenummer in der Anzeige mit Ihrem Altteil.",
+                    location: "Geeste"
+                },
+                {
+                    title: "VW Golf Sportsvan Tür Hinten rechts ab 2014",
+                    price: "150 € VB",
+                    partNumber: "510833312K",
+                    condition: "Gebraucht",
+                    description: "Der Artikel ist gebraucht und kann kleinere Gebrauchsspuren wie Kratzer aufweisen. Bitte vergleichen Sie die Teilenummer in der Anzeige mit Ihrem Altteil.",
+                    location: "Geeste"
+                }
+            ],
+            tuerverkleidung: [
+                {
+                    title: "VW T6 7E5 Türverkleidung Schiebetür rechts inkl. Roll",
+                    price: "219 € VB",
+                    partNumber: "7E5867028CH",
+                    condition: "Gebraucht - Guter Zustand",
+                    description: "Der Artikel ist gebraucht und kann kleinere Gebrauchsspuren aufweisen. Nummer: 7E5864869A 7E5867028CH NGN",
+                    location: "49744 Geeste Groß-Hesepe"
+                }
+            ],
+            trittbretter: [
+                {
+                    title: "VW Crafter/Mercedes Sprinter Trittbrett",
+                    price: "105 € VB",
+                    partNumber: "Crafter/Sprinter",
+                    condition: "Guter Zustand",
+                    description: "Trittbrett VW Crafter/Mercedes Sprinter. Abmessungen siehe Bilder. Abholung vor Ort.",
+                    location: "Nur Abholung"
+                },
+                {
+                    title: "Trittbrett VW Crafter Easy Step",
+                    price: "105 € VB",
+                    partNumber: "VW Crafter",
+                    condition: "Guter Zustand",
+                    description: "VW Crafter evtl. auch Mercedes Sprinter. Trittbrett Easy Step. Abmessungen siehe Bilder.",
+                    location: "Nur Abholung"
+                }
+            ],
+            stossstange: [
+                {
+                    title: "ID3 Stoßstange hinten Farbcode A7C",
+                    price: "195 € VB",
+                    partNumber: "10A807417",
+                    condition: "Gebraucht",
+                    description: "Der Artikel ist gebraucht und kann kleinere Gebrauchsspuren wie Kratzer aufweisen. Bitte vergleichen Sie die Teilenummer in der Anzeige mit Ihrem Altteil.",
+                    location: "Geeste"
+                }
+            ],
+            'reifen-sommer': [
+                {
+                    title: "Sommerreifen Michelin Primacy 4 205/55 R17 91W",
+                    price: "115 € VB",
+                    partNumber: "205/55R17",
+                    condition: "Gebraucht",
+                    description: "Sommerreifen Michelin Primacy 4 205/55R17 91V. Woche/Jahr: 0521",
+                    location: "Geeste"
+                },
+                {
+                    title: "Sommerreifen Hankook Ventus Prime 2 235/45 R18 94W",
+                    price: "105 € VB",
+                    partNumber: "235/45R18",
+                    condition: "Gebraucht",
+                    description: "2 Sommerreifen Hankook Ventus Prime 2 235/45 R18 94W. Woche/Jahr: 3519",
+                    location: "Geeste"
+                },
+                {
+                    title: "Hankook Sommerreifen Ventus Prime 4 K135 215/65 R16",
+                    price: "235 € VB",
+                    partNumber: "215/65R16",
+                    condition: "Neu - 2024",
+                    description: "Hankook Sommerreifen Ventus Prime 4 K135 215/65 R16 102H XL aus dem Jahr 2024 Woche 36. DOT 12x9B 18 HA",
+                    location: "Geeste"
+                }
+            ],
+            felgen: [
+                {
+                    title: "18 Zoll VW Transporter T6 T6.1 original Springfield",
+                    price: "550 € VB",
+                    partNumber: "7E0601025AC",
+                    condition: "Neu!",
+                    description: "18 Zoll Springfield VW Transporter T6 T6.1 original 7E0601025AC Felge Alufelge",
+                    location: "Geeste"
+                },
+                {
+                    title: "Alufelgen Original Audi A6 S6 4G 18 8x18 ET41",
+                    price: "595 € VB",
+                    partNumber: "4G9601025E",
+                    condition: "Mit Reifen",
+                    description: "4 Alufelgen Original Audi A6 S6 4G 18 8x18 ET41 LK 5/112. Allwetterreifen aus 2019 Profiltiefe circa 6 mm 215/55R17 94V GoodYear",
+                    location: "Geeste"
+                },
+                {
+                    title: "4x Original Alufelgen VW Devenport T6 7Jx17 ET55",
+                    price: "750 € VB",
+                    partNumber: "7E0601025P",
+                    condition: "Gebraucht",
+                    description: "4 Original Alufelgen VW Devenport T6 7Jx17 ET55. Passend für: VW Transporter Multivan T5 T6. Auch andere Modelle möglich.",
+                    location: "Geeste"
+                }
+            ],
+            bodenplatte: [
+                {
+                    title: "VW Crafter Bodenplatte Holzboden vorne",
+                    price: "550 € VB",
+                    partNumber: "7C0 863 678 J XT8 K2 TM2",
+                    condition: "Neuwertiger Zustand",
+                    description: "Originalen Sperrholzboden für den VW Crafter Facelift ab Modelljahr 2017 mit langem Radstand. Farbe: Anthrazit (XT8). Neuwertiger Zustand, da aus einem Neuwagen ausgebaut. Nur der vordere Teil!",
+                    location: "Geeste"
+                }
+            ]
+        };
+
+        // Navigation functionality
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            document.getElementById(pageId).classList.add('active');
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+            
+            const activeLink = document.querySelector(`[data-page="${pageId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+
+        // Category click functionality
+        function showProducts(category) {
+            const categoryData = products[category] || [];
+            const productsGrid = document.getElementById('productsGrid');
+            const categoryTitle = document.getElementById('categoryTitle');
+            const categorySubtitle = document.getElementById('categorySubtitle');
+            
+            const categoryNames = {
+                motorhaube: 'Motorhaube/Frontklappe',
+                tueren: 'Türen',
+                tuerverkleidung: 'Türverkleidung',
+                trittbretter: 'Trittbretter',
+                stossstange: 'Stoßstange',
+                'reifen-sommer': 'Sommerreifen',
+                felgen: 'Felgen',
+                bodenplatte: 'Bodenplatte'
+            };
+            
+            categoryTitle.textContent = categoryNames[category] || 'Produkte';
+            categorySubtitle.textContent = `${categoryData.length} Artikel in dieser Kategorie`;
+            
+            productsGrid.innerHTML = '';
+            
+            if (categoryData.length === 0) {
+                productsGrid.innerHTML = '<p style="text-align: center; color: #5a5a5a; grid-column: 1/-1;">Keine Artikel in dieser Kategorie verfügbar.</p>';
+            } else {
+                categoryData.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    productCard.innerHTML = `
+                        <h3 class="product-title">${product.title}</h3>
+                        <div class="product-price">${product.price}</div>
+                        <div class="product-part-number">Art.-Nr.: ${product.partNumber}</div>
+                        <div class="product-condition">${product.condition}</div>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-location">📍 ${product.location}</div>
+                    `;
+                    productsGrid.appendChild(productCard);
+                });
+            }
+            
+            showPage('products');
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const page = this.getAttribute('data-page');
+                    if (page) {
+                        showPage(page);
+                    }
+                });
+            });
+
+            const ctaButton = document.querySelector('.cta-button');
+            if (ctaButton) {
+                ctaButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const page = this.getAttribute('data-page');
+                    if (page) {
+                        showPage(page);
+                    }
+                });
+            }
+
+            const categoryCards = document.querySelectorAll('.category-card');
+            categoryCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    if (category) {
+                        showProducts(category);
+                    }
+                });
+            });
+
+            const categoryLinks = document.querySelectorAll('[data-category]');
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const category = this.getAttribute('data-category');
+                    if (category) {
+                        showProducts(category);
+                    }
+                });
+            });
+        });
+
+        // Filter functionality
+        function filterCategories() {
+            const carType = document.getElementById('carType').value;
+            const condition = document.getElementById('condition').value;
+            const sortBy = document.getElementById('sortBy').value;
+            
+            const cards = Array.from(document.querySelectorAll('.category-card'));
+            
+            cards.forEach(card => {
+                const cardBrand = card.getAttribute('data-brand');
+                const cardCondition = card.getAttribute('data-condition');
+                
+                let show = true;
+                
+                if (carType && cardBrand !== carType && cardBrand !== 'mixed') {
+                    show = false;
+                }
+                
+                if (condition && cardCondition !== condition && cardCondition !== 'mixed') {
+                    show = false;
+                }
+                
+                card.style.display = show ? 'block' : 'none';
+            });
+            
+            const grid = document.getElementById('categoriesGrid');
+            const visibleCards = cards.filter(card => card.style.display !== 'none');
+            
+            visibleCards.sort((a, b) => {
+                switch (sortBy) {
+                    case 'alphabetical':
+                        return a.querySelector('.category-title').textContent.localeCompare(b.querySelector('.category-title').textContent);
+                    case 'price-asc':
+                        return parseInt(a.getAttribute('data-price')) - parseInt(b.getAttribute('data-price'));
+                    case 'price-desc':
+                        return parseInt(b.getAttribute('data-price')) - parseInt(a.getAttribute('data-price'));
+                    case 'oldest':
+                        return new Date(a.getAttribute('data-date')) - new Date(b.getAttribute('data-date'));
+                    case 'newest':
+                    default:
+                        return new Date(b.getAttribute('data-date')) - new Date(a.getAttribute('data-date'));
+                }
+            });
+            
+            visibleCards.forEach(card => {
+                grid.appendChild(card);
+            });
+        }
+
+        function clearFilters() {
+            document.getElementById('carType').value = '';
+            document.getElementById('condition').value = '';
+            document.getElementById('sortBy').value = 'newest';
+            
+            const cards = document.querySelectorAll('.category-card');
+            cards.forEach(card => {
+                card.style.display = 'block';
+            });
+        }
+
+        // Add event listeners for filters
+        document.addEventListener('DOMContentLoaded', function() {
+            const filters = ['carType', 'condition', 'sortBy'];
+            filters.forEach(filterId => {
+                const element = document.getElementById(filterId);
+                if (element) {
+                    element.addEventListener('change', filterCategories);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
